@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Dark Neo-Brutalist Palette */
+  --bg-primary: #050505;
+  /* Pitch Black */
+  --bg-secondary: #1a1a1a;
+  /* Dark Gray */
+
+  --border-color: #ffffff;
+  /* Stark White Borders */
+  --border-width: 2px;
+
+  /* Hard White Shadows for High Contrast */
+  --shadow-hard: 4px 4px 0px #ffffff;
+  --shadow-hover: 6px 6px 0px #ffffff;
+
+  /* Vibrant Neon Accents */
+  --accent-primary: #a78bfa;
+  /* Light Violet */
+  --accent-secondary: #f472b6;
+  /* Pink */
+  --accent-action: #fbbf24;
+  /* Amber */
+  --success: #4ade80;
+  /* Neon Green */
+  --error: #f87171;
+  /* Pastel Red */
+
+  --text-primary: #ffffff;
+  --text-secondary: #a3a3a3;
+  --text-inverse: #000000;
+
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  /* Dot Matrix Pattern (White dots on Black) */
+  background-image: radial-gradient(#333 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  border-left: 2px solid #fff;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fff;
+  border: 2px solid #000;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  margin-top: 0;
+  color: #fff;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+button {
+  cursor: pointer;
+}
+
+.fade-in {
+  animation: none;
+  opacity: 1;
+}
