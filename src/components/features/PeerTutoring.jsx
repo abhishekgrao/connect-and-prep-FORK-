@@ -11,15 +11,6 @@ const PeerTutoring = () => {
 
     return (
         <div className="feature-container">
-            <div className="feature-header">
-                <h1>Peer to Peer Tutoring</h1>
-                {user.role === 'teacher' && (
-                    <button className="login-btn" style={{ width: 'auto', padding: '0.5rem 1rem' }} onClick={() => setShowAssignForm(!showAssignForm)}>
-                        <UserCheck size={18} style={{ marginRight: '8px' }} /> Assign Tutor
-                    </button>
-                )}
-            </div>
-
             {showAssignForm && (
                 <div className="card" style={{ marginBottom: '2rem', border: '1px solid #4ade80' }}>
                     <h3>Assign Student Tutor</h3>
