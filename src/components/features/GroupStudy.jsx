@@ -18,13 +18,6 @@ const GroupStudy = () => {
 
     return (
         <div className="feature-container">
-            <div className="feature-header">
-                <h1>Group Study Manager</h1>
-                <button className="login-btn" style={{ width: 'auto', padding: '0.5rem 1rem' }} onClick={() => setShowForm(!showForm)}>
-                    <Plus size={18} style={{ marginRight: '8px' }} /> Host Group Study
-                </button>
-            </div>
-
             {showForm && (
                 <div className="card" style={{ marginBottom: '2rem', border: '1px solid #646cff' }}>
                     <h3>Host a New Session</h3>
