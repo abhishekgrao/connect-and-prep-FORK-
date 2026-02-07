@@ -75,23 +75,26 @@
 .nav-item {
     display: flex;
     align-items: center;
-    height: 50px;
+    height: 48px;
+    /* Slightly reduced height */
     padding: 0;
-    /* No padding */
-    margin-bottom: 8px;
+    margin: 0 10px 12px 10px;
+    /* Margins for shadow */
     cursor: pointer;
     color: #ccc;
-    font-weight: 600;
-    /* Use box-shadow instead of border to prevent layout shifts */
-    box-shadow: inset 0px 0 0 transparent;
-    transition: all 0.2s;
+    font-weight: 700;
+    border-radius: 8px;
+    /* Rounded corners */
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
     white-space: nowrap;
     overflow: hidden;
+    border: 2px solid transparent;
+    /* Placeholder for border to avoid shift if needed */
 }
 
 .icon-container {
-    min-width: 60px;
-    /* Matched to sidebar width */
+    min-width: 40px;
+    /* Reduced to fit margins */
     height: 100%;
     display: flex;
     align-items: center;
@@ -101,15 +104,21 @@
 .nav-item:hover {
     background: #1f1f1f;
     color: #fff;
-    box-shadow: inset 4px 0 0 #fff;
-    /* White line on hover */
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px rgba(255, 255, 255, 0.1);
 }
 
 .nav-item.active {
-    background: #111;
-    color: var(--accent-primary);
-    box-shadow: inset 4px 0 0 var(--accent-primary);
-    /* Purple line on active */
+    background: #fff;
+    color: #000;
+    border: 2px solid #fff;
+    box-shadow: 4px 4px 0px #333;
+    /* The requested shadow effect */
+    transform: translate(-2px, -2px);
+}
+
+.nav-item.active .icon-container {
+    color: #000;
 }
 
 /* Main Content */
