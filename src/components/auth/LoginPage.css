@@ -5,64 +5,76 @@
     min-height: 100vh;
     width: 100vw;
     background-color: #000;
-    /* Cyber Grid */
+    /* Grid Pattern */
     background-image:
         linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
     background-size: 40px 40px;
-    background-position: center;
-}
-
-/* Overlay */
-.login-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at center, transparent 0%, #000 80%);
 }
 
 .login-card {
     position: relative;
     z-index: 10;
-    background: #111;
-    border: 2px solid #fff;
-    padding: 3rem;
+    background: #0a0a0a;
+    border: 4px solid #fff;
+    padding: 2rem 2.5rem;
+    /* Reduced padding */
     width: 100%;
-    max-width: 450px;
+    max-width: 480px;
+    /* Reduced max-width */
     box-shadow: 12px 12px 0px #fff;
+    /* Reduced shadow */
     text-align: center;
     border-radius: 0;
 }
 
-.login-header h1 {
-    font-size: 2.5rem;
-    font-weight: 900;
+/* Header Section */
+.login-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.clogo-icon {
     margin-bottom: 0.5rem;
-    text-transform: uppercase;
     color: #fff;
 }
 
-.login-header p {
-    color: #000;
-    font-family: 'JetBrains Mono', monospace;
-    background: var(--accent-action);
-    display: inline-block;
-    padding: 4px 8px;
-    border: 2px solid #fff;
-    font-weight: 600;
+.login-header h1 {
+    font-size: 2rem;
+    /* Reduced font size */
+    font-weight: 900;
+    margin: 0.5rem 0 1rem 0;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 1px;
 }
 
+.portal-badge {
+    background: #FFC107;
+    /* Yellow */
+    color: #000;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    padding: 6px 12px;
+    border: 2px solid #fff;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    box-shadow: 3px 3px 0px rgba(255, 255, 255, 0.2);
+    margin-bottom: 1.5rem;
+}
+
+/* Role Toggle */
 .role-toggle {
     display: flex;
     background: #000;
     border: 2px solid #fff;
     padding: 4px;
-    border-radius: 6px;
+    border-radius: 8px;
+    /* Rounded pill shape */
     margin-bottom: 2rem;
-    gap: 4px;
+    width: 100%;
 }
 
 .toggle-btn {
@@ -70,9 +82,12 @@
     border: none;
     background: transparent;
     padding: 10px;
-    font-weight: 700;
-    border-radius: 4px;
-    color: #888;
+    font-weight: 800;
+    font-size: 1rem;
+    color: #666;
+    border-radius: 6px;
+    text-transform: capitalize;
+    transition: all 0.2s;
 }
 
 .toggle-btn.active {
@@ -80,28 +95,94 @@
     color: #000;
 }
 
+/* Form Styling */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+}
+
 .form-group label {
-    font-weight: 700;
+    font-weight: 800;
     color: #fff;
     text-transform: uppercase;
-    font-size: 0.8rem;
-    margin-bottom: 6px;
+    font-size: 1rem;
+    /* Reduced label size */
+    white-space: nowrap;
+    min-width: 130px;
+    /* Reduced width */
+    text-align: right;
+}
+
+.separator {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.form-group input {
+    flex: 1;
+    background: #000;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    padding: 10px 12px;
+    color: #666;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: 3px 3px 0px rgba(255, 255, 255, 0.2);
+}
+
+.form-group input:focus {
+    color: #fff;
+    border-color: #FFC107;
+    /* Highlight on focus */
+}
+
+/* Button */
+.login-btn {
+    margin-top: 1.5rem;
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 12px 28px;
+    font-size: 1.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: center;
+    min-width: 180px;
+    box-shadow: 6px 6px 0px rgba(255, 255, 255, 0.2);
+    transition: transform 0.1s;
+}
+
+.login-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0px rgba(255, 255, 255, 0.2);
+}
+
+.login-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px rgba(255, 255, 255, 0.2);
 }
 
 .error-message {
     margin-top: 1rem;
-    background: var(--error);
-    color: #000;
+    background: #FF5252;
+    color: #fff;
     padding: 0.5rem;
     border: 2px solid #fff;
-    font-weight: 600;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
-.demo-hint {
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 2px dashed #333;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
-    color: #666;
-}
+/* Removed Demo Hint styling - it's removed from JSX */
