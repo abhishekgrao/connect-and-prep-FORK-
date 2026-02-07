@@ -38,10 +38,12 @@ const LoginPage = () => {
             <div className="login-card">
                 <div className="login-header">
                     <div className="logo-icon">
-                        {isStudent ? <GraduationCap size={48} /> : <School size={48} />}
+                        <GraduationCap size={64} strokeWidth={1.5} />
                     </div>
-                    <h1>Connect & Prep</h1>
-                    <p>{isStudent ? 'Student Portal' : 'Teacher Portal'}</p>
+                    <h1>CONNECT & PREP</h1>
+                    <div className="portal-badge">
+                        {isStudent ? 'Student Portal' : 'Teacher Portal'}
+                    </div>
                 </div>
 
                 <div className="role-toggle">
@@ -61,7 +63,8 @@ const LoginPage = () => {
 
                 <form onSubmit={handleLogin} className="login-form">
                     <div className="form-group">
-                        <label>Email Address</label>
+                        <label>EMAIL ID / USN</label>
+                        <span className="separator">&gt;</span>
                         <input
                             type="email"
                             placeholder={isStudent ? "student@test.com" : "teacher@test.com"}
@@ -71,7 +74,8 @@ const LoginPage = () => {
                     </div>
 
                     <div className="form-group">
-                        <label>Password</label>
+                        <label>PASSWORD</label>
+                        <span className="separator">&gt;</span>
                         <input
                             type="password"
                             placeholder="••••••••"
@@ -83,14 +87,9 @@ const LoginPage = () => {
                     {error && <div className="error-message">{error}</div>}
 
                     <button type="submit" className="login-btn" disabled={loading}>
-                        {loading ? 'Logging in...' : 'Login'}
+                        {loading ? 'LOGGING IN...' : 'LOGIN'}
                     </button>
                 </form>
-
-                <div className="demo-hint">
-                    <p>Demo Credentials:</p>
-                    <small>{isStudent ? 'student@test.com' : 'teacher@test.com'} / password</small>
-                </div>
             </div>
         </div>
     );
