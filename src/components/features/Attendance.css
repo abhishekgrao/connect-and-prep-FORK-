@@ -7,7 +7,7 @@
 .feature-header h1 {
     font-size: 2rem;
     margin-bottom: 2rem;
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid var(--border-color);
     padding-bottom: 1rem;
     display: inline-block;
 }
@@ -17,9 +17,9 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
-    background: #111;
+    background: var(--bg-card);
     padding: 1.5rem;
-    border: 2px solid #fff;
+    border: 2px solid var(--border-color);
     align-items: end;
 }
 
@@ -39,9 +39,9 @@
 
 .filter-select,
 .filter-input {
-    background: #000;
-    border: 2px solid #333;
-    color: #fff;
+    background: var(--bg-primary);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
     padding: 10px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.9rem;
@@ -55,16 +55,16 @@
 
 /* Course Summary Table */
 .summary-section {
-    border: 2px solid #fff;
-    background: #000;
+    border: 2px solid var(--border-color);
+    background: var(--bg-primary);
 }
 
 .section-title {
-    background: #222;
+    background: var(--bg-secondary);
     padding: 10px 1rem;
     font-weight: 700;
-    border-bottom: 2px solid #fff;
-    color: #fff;
+    border-bottom: 2px solid var(--border-color);
+    color: var(--text-primary);
     text-transform: uppercase;
     font-size: 0.9rem;
 }
@@ -80,11 +80,11 @@
 .data-table td {
     padding: 12px 1rem;
     text-align: left;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .data-table th {
-    color: #888;
+    color: var(--text-secondary);
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.75rem;
@@ -95,13 +95,13 @@
 }
 
 .data-table tr:hover td {
-    background: #111;
+    background: var(--bg-secondary);
 }
 
 /* Daywise Section */
 .daywise-section {
-    border: 2px solid #fff;
-    background: #000;
+    border: 2px solid var(--border-color);
+    background: var(--bg-primary);
     margin-top: 1rem;
 }
 
@@ -109,14 +109,14 @@
     display: flex;
     justify-content: space-between;
     padding: 1rem;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid var(--border-color);
     align-items: center;
 }
 
 .search-box input {
-    background: #000;
-    border: 1px solid #fff;
-    color: #fff;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
     padding: 6px 12px;
     font-family: inherit;
 }
@@ -143,6 +143,41 @@
 }
 
 .doc-status {
-    color: #aaa;
+    color: var(--text-secondary);
     font-size: 0.8rem;
+}
+
+/* Force light grey for tables in light theme */
+:root[data-theme="light"] .summary-section,
+:root[data-theme="light"] .daywise-section {
+    background: #D1D5DB !important;
+    color: #000000 !important;
+    border-color: #000000 !important;
+}
+
+:root[data-theme="light"] .section-title {
+    background: rgba(0, 0, 0, 0.05) !important;
+    color: #000000 !important;
+    border-bottom: 2px solid #000000 !important;
+}
+
+:root[data-theme="light"] .data-table th {
+    color: #000000 !important;
+    border-bottom: 2px solid #000000 !important;
+    font-weight: 800 !important;
+}
+
+:root[data-theme="light"] .data-table td {
+    color: #000000 !important;
+    border-bottom: 1px solid #000000 !important;
+}
+
+:root[data-theme="light"] .table-footer {
+    color: #000000 !important;
+}
+
+:root[data-theme="light"] .search-box input {
+    background: #fff !important;
+    color: #000 !important;
+    border: 1px solid #000 !important;
 }
