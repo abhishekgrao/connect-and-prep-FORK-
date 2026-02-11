@@ -13,6 +13,8 @@ import DoubtSolving from './components/features/DoubtSolving'
 import StudyMarathons from './components/features/StudyMarathons'
 import Results from './components/features/Results'
 import Alumni from './components/features/Alumni'
+import DashboardHome from './components/features/DashboardHome'
+import Profile from './components/features/Profile'
 import './App.css'
 
 // Protected Route Component
@@ -23,30 +25,7 @@ const ProtectedRoute = ({ children }) => {
     return children;
 };
 
-// Placeholder for Dashboard Home
-const DashboardHome = () => (
-    <div className="dashboard-home">
-        <div className="welcome-banner">
-            <h2>Welcome back to Connect & Prep!</h2>
-            <p>Your centralized hub for academic excellence.</p>
-        </div>
 
-        <div className="grid-container">
-            <div className="card stat-card">
-                <h3>Study Streak</h3>
-                <p className="big-number">12 Days</p>
-            </div>
-            <div className="card stat-card">
-                <h3>Tasks Pending</h3>
-                <p className="big-number">5</p>
-            </div>
-            <div className="card stat-card">
-                <h3>Next Event</h3>
-                <p>Mathematics Marathon - 2 PM</p>
-            </div>
-        </div>
-    </div>
-);
 
 function App() {
     return (
@@ -72,6 +51,7 @@ function App() {
                         <Route path="results" element={<Results />} />
                         <Route path="library" element={<Library />} />
                         <Route path="attendance" element={<Attendance />} />
+                        <Route path="profile" element={<Profile />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
