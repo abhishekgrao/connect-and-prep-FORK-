@@ -8,10 +8,6 @@ const Attendance = () => {
 
     return (
         <div className="attendance-container">
-            <div className="feature-header">
-                <h1>Attendance List</h1>
-            </div>
-
             {/* Filters */}
             <div className="filters-section">
                 <div className="filter-group">
@@ -61,7 +57,7 @@ const Attendance = () => {
                                             height: '6px',
                                             background: '#333',
                                             borderRadius: '3px',
-                                            maxWidth: '100px'
+                                            maxWidth: '250px'
                                         }}>
                                             <div style={{
                                                 width: `${item.percentage}%`,
