@@ -19,7 +19,7 @@ const GroupStudy = () => {
     return (
         <div className="feature-container">
             {showForm && (
-                <div className="card" style={{ marginBottom: '2rem', border: '1px solid #646cff' }}>
+                <div className="card" style={{ marginBottom: '2rem', border: '1px solid #000000' }}>
                     <h3>Host a New Session</h3>
                     <form onSubmit={handleCreate} style={{ display: 'grid', gap: '1rem', gridTemplateColumns: '1fr 1fr' }}>
                         <input placeholder="Subject / Topic" className="filter-select" style={{ cursor: 'text' }} required />
@@ -33,7 +33,7 @@ const GroupStudy = () => {
             <div className="grid-container" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))' }}>
                 {studyGroups.map((group) => (
                     <div key={group.id} className="card" style={{ textAlign: 'left', padding: '1.5rem', position: 'relative', overflow: 'hidden' }}>
-                        <div style={{ position: 'absolute', top: 0, left: 0, width: '4px', height: '100%', background: '#a78bfa' }}></div>
+                        <div style={{ position: 'absolute', top: 0, left: 0, width: '4px', height: '100%', background: '#000000' }}></div>
 
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
                             <h3 style={{ margin: 0 }}>{group.name}</h3>
@@ -42,9 +42,9 @@ const GroupStudy = () => {
                             </span>
                         </div>
 
-                        <p style={{ color: '#fff', fontWeight: '500', marginBottom: '1rem' }}>Topic: {group.topic}</p>
+                        <p style={{ color: 'var(--text-primary)', fontWeight: '500', marginBottom: '1rem' }}>Topic: {group.topic}</p>
 
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.9rem', color: '#aaa' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.9rem', color: 'var(--text-primary)' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                                 <MapPin size={16} /> {group.venue}
                             </div>
@@ -56,7 +56,7 @@ const GroupStudy = () => {
                             </div>
                         </div>
 
-                        <button className="login-btn" style={{ marginTop: '1.5rem', background: 'rgba(255,255,255,0.1)' }}>Register / Join</button>
+                        <button className="login-btn" style={{ marginTop: '1.5rem' }}>Register / Join</button>
                     </div>
                 ))}
             </div>
