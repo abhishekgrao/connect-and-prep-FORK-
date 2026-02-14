@@ -28,13 +28,6 @@ const StudyMarathons = () => {
 
     return (
         <div className="feature-container">
-            <div className="feature-header">
-                <h1>Study Marathons</h1>
-                <button className="login-btn" style={{ width: 'auto', padding: '0.5rem 1rem' }} onClick={() => setShowHostForm(!showHostForm)}>
-                    <Plus size={18} style={{ marginRight: '8px' }} /> Host Marathon
-                </button>
-            </div>
-
             {showHostForm && (
                 <div className="card" style={{ marginBottom: '2rem', border: '1px solid #f59e0b' }}>
                     <h3>Host Study Marathon</h3>
@@ -43,7 +36,7 @@ const StudyMarathons = () => {
                         <input placeholder="Venue" className="filter-select" style={{ cursor: 'text' }} required />
                         <input placeholder="Duration" className="filter-select" style={{ cursor: 'text' }} required />
                         <input type="date" className="filter-select" style={{ cursor: 'text' }} required />
-                        <button type="submit" className="login-btn" style={{ gridColumn: 'span 2', background: '#f59e0b', color: '#000' }}>Broadcast</button>
+                        <button type="submit" className="login-btn" style={{ gridColumn: 'span 2' }}>Broadcast</button>
                     </form>
                 </div>
             )}
@@ -71,8 +64,8 @@ const StudyMarathons = () => {
                                 <span style={{ fontSize: '0.8rem', color: '#888' }}>Hosted by {m.host}</span>
                             </div>
                             <span style={{
-                                background: m.status === 'Upcoming' ? '#646cff20' : '#4ade8020',
-                                color: m.status === 'Upcoming' ? '#646cff' : '#4ade80',
+                                background: m.status === 'Upcoming' ? '#00000020' : '#4ade8020',
+                                color: m.status === 'Upcoming' ? '#000000' : '#4ade80',
                                 padding: '4px 8px',
                                 borderRadius: '4px',
                                 fontSize: '0.8rem'
@@ -81,7 +74,7 @@ const StudyMarathons = () => {
                             </span>
                         </div>
 
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem', fontSize: '0.9rem', color: '#ccc', marginBottom: '1.5rem' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem', fontSize: '0.9rem', color: '#444', marginBottom: '1.5rem', fontWeight: '500' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Timer size={16} /> {m.duration}</div>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><MapPin size={16} /> {m.venue}</div>
                         </div>
@@ -92,7 +85,7 @@ const StudyMarathons = () => {
                             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
                                 <button
                                     className="login-btn"
-                                    style={{ background: takingTest === m.id ? '#888' : '#4ade80', color: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
+                                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
                                     onClick={() => handleTakeTest(m.id)}
                                     disabled={!!m.userScore}
                                 >
