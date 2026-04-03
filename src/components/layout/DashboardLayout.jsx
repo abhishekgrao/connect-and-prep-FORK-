@@ -26,22 +26,27 @@ const DashboardLayout = () => {
 
     const navItems = [
         { label: 'Dashboard', icon: <Layout size={20} />, path: '/dashboard' },
-        { label: 'Timetable', icon: <Clock size={20} />, path: '/dashboard/timetable' },
-        { label: 'Academic Hub', icon: <GraduationCap size={20} />, path: '/dashboard/academic' },
         { label: 'Attendance List', icon: <Calendar size={20} />, path: '/dashboard/attendance' },
+        { label: 'Timetable', icon: <Clock size={20} />, path: '/dashboard/timetable' },
         { label: 'Notes & PYQs', icon: <BookOpen size={20} />, path: '/dashboard/notes' },
-        { label: 'Discussion Forum', icon: <Hash size={20} />, path: '/dashboard/chat' },
-        { label: 'Study Zone', icon: <Users size={20} />, path: '/dashboard/studyzone' },
-        { label: 'Doubt Solving', icon: <MessageSquare size={20} />, path: '/dashboard/doubts' },
-        { label: 'CGPA Calculator', icon: <Calculator size={20} />, path: '/dashboard/cgpa' },
-        { label: 'Activity Feed', icon: <Activity size={20} />, path: '/dashboard/feed' },
         { label: 'My Notes & Tasks', icon: <StickyNote size={20} />, path: '/dashboard/my-notes' },
-        { label: 'Placements & Interns', icon: <Briefcase size={20} />, path: '/dashboard/placements' },
-        { label: 'Library', icon: <Library size={20} />, path: '/dashboard/library' },
+        
+        { type: 'divider' },
+
+        { label: 'Doubt Solving', icon: <MessageSquare size={20} />, path: '/dashboard/doubts' },
+        { label: 'Study Zone', icon: <Users size={20} />, path: '/dashboard/studyzone' },
+        { label: 'Discussion Forum', icon: <Hash size={20} />, path: '/dashboard/chat' },
+        { label: 'Answer Analysis', icon: <BarChart2 size={20} />, path: '/dashboard/analysis' },
+        { label: 'Activity Feed', icon: <Activity size={20} />, path: '/dashboard/feed' },
+        { label: 'CGPA Calculator', icon: <Calculator size={20} />, path: '/dashboard/cgpa' },
         { label: 'Weekly Challenges', icon: <Flame size={20} />, path: '/dashboard/challenges' },
+
+        { type: 'divider' },
+
         { label: 'Leaderboard & XP', icon: <Trophy size={20} />, path: '/dashboard/leaderboard' },
-        { label: 'Anonymous Chat', icon: <Ghost size={20} />, path: '/dashboard/anonymous-chat' },
+        { label: 'Placements & Interns', icon: <Briefcase size={20} />, path: '/dashboard/placements' },
         { label: 'Complaint Box', icon: <Shield size={20} />, path: '/dashboard/complaints' },
+        { label: 'Anonymous Box', icon: <Ghost size={20} />, path: '/dashboard/anonymous-chat' },
     ];
 
     const currentLabel = navItems.slice().sort((a, b) => b.path.length - a.path.length).find(i => location.pathname.startsWith(i.path))?.label || 'Dashboard';
@@ -69,15 +74,19 @@ const DashboardLayout = () => {
                 </div>
 
                 <nav className="sidebar-nav">
-                    {navItems.map((item) => (
-                        <div
-                            key={item.path}
-                            className={`nav-item ${location.pathname === item.path ? 'active' : ''}`}
-                            onClick={() => navigate(item.path)}
-                        >
-                            <div className="icon-container">{item.icon}</div>
-                            <span className="sidebar-text">{item.label}</span>
-                        </div>
+                    {navItems.map((item, idx) => (
+                        item.type === 'divider' ? (
+                            <div key={`divider-${idx}`} className="nav-divider" />
+                        ) : (
+                            <div
+                                key={item.path}
+                                className={`nav-item ${location.pathname === item.path ? 'active' : ''}`}
+                                onClick={() => navigate(item.path)}
+                            >
+                                <div className="icon-container">{item.icon}</div>
+                                <span className="sidebar-text">{item.label}</span>
+                            </div>
+                        )
                     ))}
                 </nav>
             </aside>

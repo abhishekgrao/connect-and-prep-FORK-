@@ -149,6 +149,13 @@
     color: #000;
 }
 
+.nav-divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 1.5rem 1rem;
+    opacity: 0.3;
+}
+
 /* Main Content */
 .main-content {
     flex: 1;
