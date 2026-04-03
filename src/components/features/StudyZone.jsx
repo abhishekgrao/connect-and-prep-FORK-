@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import GroupStudy from './GroupStudy';
 import PeerTutoring from './PeerTutoring';
 import StudyMarathons from './StudyMarathons';
-import { Users, UserCheck, Timer } from 'lucide-react';
+import Whiteboard from './Whiteboard';
+import { Users, UserCheck, Timer, Pencil } from 'lucide-react';
 import './FeatureStyles.css';
 
 const StudyZone = () => {
@@ -12,12 +13,11 @@ const StudyZone = () => {
         { key: 'groups', label: 'Group Study', icon: <Users size={16} /> },
         { key: 'peer', label: 'Peer Tutoring', icon: <UserCheck size={16} /> },
         { key: 'marathons', label: 'Study Marathons', icon: <Timer size={16} /> },
+        { key: 'whiteboard', label: 'Collaborative Board', icon: <Pencil size={16} /> },
     ];
 
     return (
         <div className="academic-hub animate-enter" style={{ padding: '2rem' }}>
-
-
             {/* Tab Navigation */}
             <div className="ahub-tabs">
                 {tabs.map(tab => (
@@ -48,6 +48,12 @@ const StudyZone = () => {
             {activeTab === 'marathons' && (
                 <div className="ahub-section animate-enter">
                     <StudyMarathons />
+                </div>
+            )}
+
+            {activeTab === 'whiteboard' && (
+                <div className="ahub-section animate-enter">
+                    <Whiteboard />
                 </div>
             )}
         </div>
