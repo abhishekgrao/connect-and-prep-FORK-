@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📚 Connect & Prep
+# 🗺️ Connect & Prep
 ### *Empowering Students. Mastering Academics.*
 
 <img src="assets/hero.png" alt="Connect & Prep Hero" width="100%">
@@ -12,7 +12,11 @@
 
 ---
 
+### [✨ Features](#-a-universe-of-features) • [🛠️ Tech Stack](#-tech-stack) • [🏁 Get Started](#-getting-started) • [📂 Architecture](#-project-architecture)
+
 </div>
+
+---
 
 ## ✨ Overview
 
@@ -20,14 +24,16 @@
 
 <img src="assets/pillars.png" alt="Core Pillars" width="100%">
 
-
 ### 🎯 The Problem We're Solving
 
 Modern engineering students often struggle with fragmented information, isolated study habits, and a lack of deep mental connection with their subjects. **Connect & Prep** solves this by consolidating study materials, peer-to-peer tutoring, and AI-driven performance analytics into a single, unified experience.
 
 ### 🌎 Future Vision: Beyond Engineering
 
-While we've started with the engineering curriculum, the architecture of **Connect & Prep** is built to be **discipline-agnostic**. Our future roadmap includes scaling this platform to other fields like Medicine, Law, and Arts, empowering students worldwide to master their "Marga" (path) of learning.
+While we've started with the engineering curriculum, the architecture of **Connect & Prep** is built to be **discipline-agnostic**. Our future roadmap includes scaling this platform to other fields like Medicine, Law, and Arts, empowering students worldwide to master their path of learning.
+
+### 🏆 Achievement
+**Won 2nd Place in a 24-hour State Level Hackathon at Vidyavardhaka College of Engineering - *Parivarthan* event.**
 
 ---
 
@@ -90,7 +96,7 @@ connect-and-prep/
 │   │   ├── features/   # Core intelligence modules
 │   │   └── layout/     # Unified application engine
 │   ├── context/        # Global state consciousness
-│   ├── services/       # External world bridges (APIs)
+│   ├── services/       # External world bridges BRIDGE (APIs)
 │   ├── App.jsx         # The main conductor
 │   └── index.css       # Design System & Soul
 ├── assets/             # Project Media 🖼️
@@ -111,7 +117,7 @@ git clone https://github.com/bharathkumar000/connect-and-prep.git
 npm install
 
 # 3. Environment Setup
-# Create .env based on the provided architecture
+# Create .env based on project architecture requirements
 ```
 
 ### 🏃 Development
@@ -125,13 +131,20 @@ npm run dev
 
 ## 🛡️ Security & Performance
 
-*   **Secure Auth**: Industry-standard identity management for student data.
-*   **Optimized Assets**: Using Next-gen formats and lazy-loading for rapid responses.
-*   **Sanitized Inputs**: Zero-trust policy implemented across all user-generated content.
+*   **Secure Authentication**: Bank-grade identity architecture for student data sovereignty.
+*   **Optimized Assets**: Using Next-gen formats and strategic lazy-loading for 99+ Lighthouse scores.
+*   **Sanitized Lifecycle**: Zero-trust policy across the entire data mutation pipeline.
 
 ---
 
 <div align="center">
+
+### 👨‍💻 Connect with the Developer
+**Bharath Kumara**
+*Engineering Student | Full Stack Developer | UI/UX Enthusiast*
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/bharathkumar000)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/bharathkumar000)
 
 *Crafted with ❤️ for the Engineering Community.*
 
