@@ -1,9 +1,12 @@
 // Basic mock backend to simulate API calls and database
 export const mockBackend = {
     users: [
-        { id: 1, name: 'Student One', email: 'student@test.com', role: 'student', password: 'password' },
+        { id: 1, name: 'Student One', email: 'student@test.com', role: 'student', password: 'password', grade: '10th Grade' },
         { id: 2, name: 'Teacher One', email: 'teacher@test.com', role: 'teacher', password: 'password' },
+        { id: 3, name: 'Parent One', email: 'parent@test.com', role: 'parent', password: 'password', childId: 1 },
     ],
+
+    schoolSubjects: ['Mathematics', 'Science', 'Social Studies', 'English', 'Computer Science', 'Art', 'Physical Education'],
 
     // Hierarchical Data for Dropdowns
     years: ['2024', '2023', '2022', '2021'],
@@ -324,6 +327,47 @@ export const mockBackend = {
         { id: 5, subject: 'Computer Science', unit: 'Unit 1', title: 'Intro to Data Structures', teacher: 'Prof. Alan', link: '#', duration: '2h 00m', views: 445 },
         { id: 6, subject: 'Chemistry', unit: 'Unit 2', title: 'Electrochemistry', teacher: 'Dr. Emily', link: '#', duration: '1h 30m', views: 98 },
     ],
+    // School & Parent Features Data
+    homework: [
+        { id: 1, subject: 'Mathematics', title: 'Quadratic Equations Ex 4.2', dueDate: '2024-03-28', status: 'Pending', priority: 'High' },
+        { id: 2, subject: 'Science', title: 'Plant Cell Diagram', dueDate: '2024-03-29', status: 'Completed', priority: 'Medium' },
+        { id: 3, subject: 'History', title: 'French Revolution Essay', dueDate: '2024-04-01', status: 'Pending', priority: 'Low' },
+    ],
+
+    parentData: {
+        childPerformance: {
+            attendance: 92,
+            homeworkCompletion: 85,
+            recentGrades: [
+                { subject: 'Math', grade: 'A', date: '2024-03-20' },
+                { subject: 'Science', grade: 'B+', date: '2024-03-18' },
+                { subject: 'English', grade: 'A+', date: '2024-03-15' },
+            ],
+            behavior: 'Excellent',
+            teacherRemarks: 'Participates actively in class. Needs slight improvement in handwriting.'
+        },
+        fees: [
+            { id: 1, title: 'Term 2 Tuition Fee', amount: '₹15,000', dueDate: '2024-04-10', status: 'Unpaid', penalty: '₹0' },
+            { id: 2, title: 'Transport Fee - March', amount: '₹2,500', dueDate: '2024-03-31', status: 'Paid', receipt: 'REC-9982' },
+            { id: 3, title: 'Library Membership Renewal', amount: '₹500', dueDate: '2024-04-15', status: 'Unpaid' },
+            { id: 4, title: 'Lab Materials Fee', amount: '₹1,200', dueDate: '2024-03-15', status: 'Paid', receipt: 'REC-9910' },
+        ],
+        safetyMonitor: {
+            overallStatus: 'Secure',
+            lastScanned: '2 Hours Ago',
+            screenTime: '1h 15m (Below average)',
+            activeApps: ['Connect & Prep', 'Wikipedia', 'Google Classroom'],
+            alerts: [
+                { id: 1, type: 'Info', msg: 'System scanned childs activity. No unauthorized access identified.', time: '10:00 AM' },
+                { id: 2, type: 'Success', msg: 'Late-night block active (10 PM to 6 AM).', time: 'Yesterday' },
+            ],
+            socialScore: 98,
+        },
+        notices: [
+            { id: 1, title: 'Annual Day Rehearsal', date: '2024-03-24', message: 'Students participating in the dance must stay back until 4PM.' },
+            { id: 2, title: 'PTM Meeting', date: '2024-04-05', message: 'Parent Teacher Meeting scheduled for Friday at 3:00 PM.' },
+        ]
+    },
 
     // Semester Analytics
     semesterAnalytics: [
@@ -342,5 +386,13 @@ export const mockBackend = {
                 }
             }, 800);
         });
-    }
+    },
+
+    teachersDiary: [
+        { id: 1, teacher: 'Mrs. Sharma', subject: 'Math', date: 'Mar 22, 2024', remark: 'Excellent performance in the algebra test. Keep it up!', type: 'Positive', read: true },
+        { id: 2, teacher: 'Mr. Khan', subject: 'Science', date: 'Mar 20, 2024', remark: 'Arrived 10 minutes late to the lab session today.', type: 'Warning', read: true },
+        { id: 3, teacher: 'Ms. Green', subject: 'English', date: 'Mar 18, 2024', remark: 'Participated very well in the debate competition. Shows great leadership skills.', type: 'Positive', read: false },
+        { id: 4, teacher: 'Admin Office', subject: 'General', date: 'Mar 15, 2024', remark: 'Annual day rehearsal schedule was sent. Please ensure the student is picked up at 4:30 PM.', type: 'Info', read: true },
+        { id: 5, teacher: 'Mrs. Sharma', subject: 'Math', date: 'Mar 10, 2024', remark: 'Missed submitting the homework for quadratic equations. Please check.', type: 'Alert', read: false },
+    ]
 };
