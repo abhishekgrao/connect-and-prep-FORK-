@@ -37,7 +37,6 @@ const DashboardLayout = () => {
         { label: 'Study Zone', icon: <Users size={20} />, path: '/dashboard/studyzone' },
         { label: 'Discussion Forum', icon: <Hash size={20} />, path: '/dashboard/chat' },
         { label: 'Answer Analysis', icon: <BarChart2 size={20} />, path: '/dashboard/analysis' },
-        { label: 'Activity Feed', icon: <Activity size={20} />, path: '/dashboard/feed' },
         { label: 'CGPA Calculator', icon: <Calculator size={20} />, path: '/dashboard/cgpa' },
         { label: 'Weekly Challenges', icon: <Flame size={20} />, path: '/dashboard/challenges' },
 
@@ -47,6 +46,7 @@ const DashboardLayout = () => {
         { label: 'Placements & Interns', icon: <Briefcase size={20} />, path: '/dashboard/placements' },
         { label: 'Complaint Box', icon: <Shield size={20} />, path: '/dashboard/complaints' },
         { label: 'Anonymous Box', icon: <Ghost size={20} />, path: '/dashboard/anonymous-chat' },
+        { label: 'Activity Feed', icon: <Activity size={20} />, path: '/dashboard/feed' },
     ];
 
     const currentLabel = navItems
