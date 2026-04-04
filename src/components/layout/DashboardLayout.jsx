@@ -49,7 +49,11 @@ const DashboardLayout = () => {
         { label: 'Anonymous Box', icon: <Ghost size={20} />, path: '/dashboard/anonymous-chat' },
     ];
 
-    const currentLabel = navItems.slice().sort((a, b) => b.path.length - a.path.length).find(i => location.pathname.startsWith(i.path))?.label || 'Dashboard';
+    const currentLabel = navItems
+        .filter(i => i.path)
+        .slice()
+        .sort((a, b) => b.path.length - a.path.length)
+        .find(i => location.pathname.startsWith(i.path))?.label || 'Dashboard';
 
     const notifications = mockBackend.notifications || [];
     const unreadCount = notifications.filter(n => !n.read).length;
