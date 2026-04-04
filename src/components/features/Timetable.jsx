@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { mockBackend } from '../../services/mockBackend';
 import { AlertTriangle, Calendar, Clock } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
 import './FeatureStyles.css';
 
 // Subject → color mapping (matching screenshot vibes)
@@ -24,8 +25,10 @@ const breakLetters = ['B', 'R', 'E', 'A', 'K'];
 const lunchLetters = ['L', 'U', 'N', 'C', 'H'];
 
 const Timetable = () => {
+    const { user } = useAuth();
     const [activeTab, setActiveTab] = useState('SCHOOL');
     const { timetable, personalNotes, todos } = mockBackend;
+    const isParent = user?.role === 'parent';
     const [currentTime, setCurrentTime] = useState(new Date());
 
     useEffect(() => {
@@ -88,7 +91,7 @@ const Timetable = () => {
                             textTransform: 'uppercase'
                         }}
                     >
-                        {tab}
+                        {tab === 'SCHOOL' && isParent ? "CHILD'S SCHOOL" : tab}
                     </button>
                 ))}
             </div>

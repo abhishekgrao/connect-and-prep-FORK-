@@ -1,9 +1,9 @@
 // Basic mock backend to simulate API calls and database
 export const mockBackend = {
     users: [
-        { id: 1, name: 'Student One', email: 'student@test.com', role: 'student', password: 'password', grade: '10th Grade' },
-        { id: 2, name: 'Teacher One', email: 'teacher@test.com', role: 'teacher', password: 'password' },
-        { id: 3, name: 'Parent One', email: 'parent@test.com', role: 'parent', password: 'password', childId: 1 },
+        { id: 1, name: 'Student One', email: '1', role: 'student', password: '1', grade: '10th Grade' },
+        { id: 2, name: 'Teacher One', email: '2', role: 'teacher', password: '2' },
+        { id: 3, name: 'Parent One', email: '3', role: 'parent', password: '3', childId: 1 },
     ],
 
     schoolSubjects: ['Mathematics', 'Science', 'Social Studies', 'English', 'Computer Science', 'Art', 'Physical Education'],

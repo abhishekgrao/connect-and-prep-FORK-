@@ -53,7 +53,8 @@ const DashboardLayout = () => {
 
     const parentNav = [
         { label: 'Parent Dashboard', icon: <Home size={20} />, path: '/dashboard/parent-dashboard' },
-        { label: 'Child Performance', icon: <TrendingUp size={20} />, path: '/dashboard/parent-dashboard' },
+        { label: 'Child\'s Timetable', icon: <Clock size={20} />, path: '/dashboard/timetable' },
+        { label: 'Child\'s Homework Hub', icon: <BookOpenCheck size={20} />, path: '/dashboard/homework' },
         { label: 'Attendance & Class', icon: <Calendar size={20} />, path: '/dashboard/attendance' },
 
         { type: 'divider' },

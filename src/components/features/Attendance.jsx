@@ -1,10 +1,13 @@
 import React from 'react';
 import { mockBackend } from '../../services/mockBackend';
 import { CheckCircle, XCircle } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
 import './Attendance.css';
 
 const Attendance = () => {
+    const { user } = useAuth();
     const { attendance } = mockBackend;
+    const isParent = user?.role === 'parent';
 
     // Helper to calculate status
     const getPrediction = (present, total) => {
@@ -13,14 +16,18 @@ const Attendance = () => {
             const needed = Math.ceil((0.75 * total - present) / 0.25);
             return {
                 status: 'critical',
-                message: `You need to attend ${needed} more classes to reach 75%.`,
+                message: isParent 
+                    ? `Your child needs to attend ${needed} more classes to reach 75%.`
+                    : `You need to attend ${needed} more classes to reach 75%.`,
                 classesToMiss: 0
             };
         } else {
             const canMiss = Math.floor((present - 0.75 * total) / 0.75);
             return {
                 status: 'safe',
-                message: `You are safe! You can skip up to ${canMiss} classes and still stay above 75%.`,
+                message: isParent
+                    ? `Your child is safe! They can skip up to ${canMiss} classes and still stay above 75%.`
+                    : `You are safe! You can skip up to ${canMiss} classes and still stay above 75%.`,
                 classesToMiss: canMiss
             };
         }

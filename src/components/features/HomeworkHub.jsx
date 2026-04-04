@@ -4,11 +4,14 @@ import {
     Calendar, CheckCircle2, Clock, AlertCircle, 
     BookOpen, Sparkles, Filter, Plus 
 } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
 import './FeatureStyles.css'; // Assuming existing styles
 
 const HomeworkHub = () => {
+    const { user } = useAuth();
     const [filter, setFilter] = useState('All');
     const homework = mockBackend.homework || [];
+    const isParent = user?.role === 'parent';
 
     const filteredHomework = homework.filter(hw => 
         filter === 'All' ? true : hw.status === filter
@@ -27,8 +30,8 @@ const HomeworkHub = () => {
         <div className="feature-container">
             <div className="feature-header">
                 <div className="header-text">
-                    <h3>Homework Hub <Sparkles size={20} className="sparkle-icon" /></h3>
-                    <p>Track your assignments and deadlines in real-time.</p>
+                    <h3>{isParent ? "Child's Homework Hub" : "Homework Hub"} <Sparkles size={20} className="sparkle-icon" /></h3>
+                    <p>{isParent ? "Keep track of your child's assignments and deadlines." : "Track your assignments and deadlines in real-time."}</p>
                 </div>
                 <div className="header-actions">
                     <div className="filter-pills">
