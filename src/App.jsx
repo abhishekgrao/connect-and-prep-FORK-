@@ -30,6 +30,8 @@ import TeachersDiary from './components/features/TeachersDiary'
 import FinancePortal from './components/features/FinancePortal'
 import SafetyMonitor from './components/features/SafetyMonitor'
 import Marks from './components/features/Marks'
+import CalendarEvents from './components/features/CalendarEvents'
+import TeacherDashboard from './components/features/TeacherDashboard'
 
 import './App.css'
 
@@ -83,6 +85,8 @@ function App() {
                         <Route path="finance" element={<FinancePortal />} />
                         <Route path="safety" element={<SafetyMonitor />} />
                         <Route path="marks" element={<Marks />} />
+                        <Route path="calendar" element={<CalendarEvents />} />
+                        <Route path="teacher-dashboard" element={<TeacherDashboard />} />
 
                     </Route>
                 </Routes>

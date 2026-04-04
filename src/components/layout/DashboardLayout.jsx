@@ -31,6 +31,7 @@ const DashboardLayout = () => {
         { label: 'Attendance List', icon: <Calendar size={20} />, path: '/dashboard/attendance' },
         { label: 'Marks & Grades', icon: <Award size={20} />, path: '/dashboard/marks' },
         { label: 'Timetable', icon: <Clock size={20} />, path: '/dashboard/timetable' },
+        { label: 'Calendar of Events', icon: <Calendar size={20} />, path: '/dashboard/calendar' },
         { label: 'Notes & PYQs', icon: <BookOpen size={20} />, path: '/dashboard/notes' },
         { label: 'My Notes & Tasks', icon: <StickyNote size={20} />, path: '/dashboard/my-notes' },
         
@@ -54,9 +55,11 @@ const DashboardLayout = () => {
 
     const parentNav = [
         { label: 'Parent Dashboard', icon: <Home size={20} />, path: '/dashboard/parent-dashboard' },
-        { label: 'Child\'s Timetable', icon: <Clock size={20} />, path: '/dashboard/timetable' },
-        { label: 'Child\'s Homework Hub', icon: <BookOpenCheck size={20} />, path: '/dashboard/homework' },
+        { label: 'Timetable', icon: <Clock size={20} />, path: '/dashboard/timetable' },
+        { label: 'Homework Hub', icon: <BookOpenCheck size={20} />, path: '/dashboard/homework' },
+        { label: 'Marks & Grades', icon: <Award size={20} />, path: '/dashboard/marks' },
         { label: 'Attendance & Class', icon: <Calendar size={20} />, path: '/dashboard/attendance' },
+        { label: 'Calendar of Events', icon: <Calendar size={20} />, path: '/dashboard/calendar' },
 
         { type: 'divider' },
 
@@ -65,7 +68,23 @@ const DashboardLayout = () => {
         { label: 'Teacher\'s Diary', icon: <BookOpenCheck size={20} />, path: '/dashboard/teachers-diary' },
     ];
 
-    const navItems = user?.role === 'parent' ? parentNav : studentNav;
+    const teacherNav = [
+        { label: 'Teacher Dashboard', icon: <Home size={20} />, path: '/dashboard/teacher-dashboard' },
+        { label: 'My Classes', icon: <BookOpen size={20} />, path: '/dashboard/timetable' },
+        { label: 'Gradebook', icon: <Award size={20} />, path: '/dashboard/marks' },
+        { label: 'Attendance', icon: <Calendar size={20} />, path: '/dashboard/attendance' },
+        { label: 'Calendar of Events', icon: <Calendar size={20} />, path: '/dashboard/calendar' },
+
+        { type: 'divider' },
+
+        { label: 'Teacher\'s Diary', icon: <BookOpenCheck size={20} />, path: '/dashboard/teachers-diary' },
+        { label: 'Announcement', icon: <Bell size={20} />, path: '/dashboard/feed' },
+        { label: 'Complaint Box', icon: <Shield size={20} />, path: '/dashboard/complaints' },
+    ];
+
+    const navItems = user?.role === 'parent' ? parentNav : 
+                     user?.role === 'teacher' ? teacherNav : 
+                     studentNav;
 
     const currentLabel = navItems
         .filter(i => i.path)

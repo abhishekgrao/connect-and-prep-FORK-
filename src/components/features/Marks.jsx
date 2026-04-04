@@ -1,10 +1,13 @@
 import React from 'react';
 import { mockBackend } from '../../services/mockBackend';
 import { Award, BookOpen, CheckCircle, HelpCircle } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
 import './FeatureStyles.css';
 
 const Marks = () => {
+    const { user } = useAuth();
     const marks = mockBackend.studentMarks || [];
+    const isParent = user?.role === 'parent';
 
     const getStatus = (total) => {
         if (total >= 90) return { label: 'S+', color: '#4ade80' };
@@ -18,8 +21,8 @@ const Marks = () => {
         <div className="feature-container animate-enter">
             <div className="feature-header">
                 <div className="header-text">
-                    <h3>Internal & Semester Marks <Award size={20} className="sparkle-icon" /></h3>
-                    <p>Comprehensive breakdown of your academic performances across all assessments.</p>
+                    <h3>{isParent ? "Your Child's Marks" : "Internal & Semester Marks"} <Award size={20} className="sparkle-icon" /></h3>
+                    <p>{isParent ? "Comprehensive breakdown of your child's academic performance." : "Comprehensive breakdown of your academic performances across all assessments."}</p>
                 </div>
             </div>
 

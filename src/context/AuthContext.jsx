@@ -36,38 +36,11 @@ export const AuthProvider = ({ children }) => {
         checkAuth();
     }, []);
 
-    const login = async (email, password, type) => {
-        // Simplified Login for Demo/Testing
-        if (email === '1' && password === '1' && type === 'student') {
-            const mockStudent = {
-                _id: 'mock-student-id',
-                name: 'Demo Student',
-                email: 'student@test.com',
-                role: 'student',
-                usn: '4VV25EC001'
-            };
-            setUser(mockStudent);
-            localStorage.setItem('cp_user', JSON.stringify(mockStudent));
-            localStorage.setItem('cp_token', 'mock-token-student');
-            return { success: true };
-        }
-
-        if (email === '2' && password === '2' && type === 'teacher') {
-            const mockTeacher = {
-                _id: 'mock-teacher-id',
-                name: 'Demo Teacher',
-                email: 'teacher@test.com',
-                role: 'teacher'
-            };
-            setUser(mockTeacher);
-            localStorage.setItem('cp_user', JSON.stringify(mockTeacher));
-            localStorage.setItem('cp_token', 'mock-token-teacher');
-            return { success: true };
-        }
-
+    const login = async (email, password) => {
+        // Simple 1/1, 2/2, 3/3 logic is now handled in mockBackend itself
         try {
-            // Try Real API first
-            const data = await authAPI.login(email, password, type);
+            // Try Real API first (ignoring the 'type' parameter for universal login)
+            const data = await authAPI.login(email, password);
             const userData = {
                 _id: data._id,
                 name: data.name,
@@ -78,12 +51,12 @@ export const AuthProvider = ({ children }) => {
             setUser(userData);
             localStorage.setItem('cp_user', JSON.stringify(userData));
             localStorage.setItem('cp_token', data.token);
-            return { success: true };
+            return { success: true, user: userData };
         } catch (error) {
             // Fallback to Mock Backend for Demo
             console.warn("API Login failed, using Mock Backend fallback", error.message);
             try {
-                const mockResult = await mockBackend.login(email, password, type);
+                const mockResult = await mockBackend.login(email, password);
                 const userData = {
                     _id: mockResult.user.id,
                     name: mockResult.user.name,
@@ -94,7 +67,7 @@ export const AuthProvider = ({ children }) => {
                 setUser(userData);
                 localStorage.setItem('cp_user', JSON.stringify(userData));
                 localStorage.setItem('cp_token', mockResult.token);
-                return { success: true };
+                return { success: true, user: userData };
             } catch (mockError) {
                 return { success: false, error: mockError.message };
             }

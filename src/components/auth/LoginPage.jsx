@@ -19,14 +19,14 @@ const LoginPage = () => {
         setError('');
         setLoading(true);
 
-        const demoEmail = email || `${role}@test.com`;
-        const demoPass = password || 'password';
-
-        const result = await login(demoEmail, demoPass, role);
+        const result = await login(email, password);
 
         if (result.success) {
-            if (role === 'parent') {
+            const userRole = result.user?.role;
+            if (userRole === 'parent') {
                 navigate('/dashboard/parent-dashboard');
+            } else if (userRole === 'teacher') {
+                navigate('/dashboard/teacher-dashboard');
             } else {
                 navigate('/dashboard');
             }
@@ -46,23 +46,8 @@ const LoginPage = () => {
                     <h1>CONNECT & PREP</h1>
                 </div>
 
-
-
-                <div className="role-selector">
-                    {['student', 'teacher', 'parent'].map(r => (
-                        <button
-                            key={r}
-                            type="button"
-                            className={`role-tab ${role === r ? 'active' : ''}`}
-                            onClick={() => setRole(r)}
-                        >
-                            {r.toUpperCase()}
-                        </button>
-                    ))}
-                </div>
-
                 <form onSubmit={handleLogin} className="login-form">
-                    <div className="form-group">
+                    <div className="form-group" style={{ marginTop: '2rem' }}>
                         <div>
                             <label>EMAIL ID / USN</label>
                             <span className="separator">&raquo;</span>
@@ -70,9 +55,10 @@ const LoginPage = () => {
                         <div className="input-wrapper">
                             <input
                                 type="text"
-                                placeholder={`${role}@test.com`}
+                                placeholder="Email or USN"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
+                                required
                             />
                         </div>
                     </div>
@@ -88,13 +74,14 @@ const LoginPage = () => {
                                 placeholder="••••••••"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
+                                required
                             />
                         </div>
                     </div>
 
                     {error && <div className="error-message">{error}</div>}
 
-                    <button type="submit" className="login-btn" disabled={loading}>
+                    <button type="submit" className="login-btn" disabled={loading} style={{ marginTop: '1rem' }}>
                         {loading ? 'LOGGING IN...' : 'LOGIN'}
                     </button>
                 </form>

@@ -347,7 +347,8 @@ export const mockBackend = {
                 { subject: 'English', grade: 'A+', date: '2024-03-15' },
             ],
             behavior: 'Excellent',
-            teacherRemarks: 'Participates actively in class. Needs slight improvement in handwriting.'
+            teacherRemarks: 'Participates actively in class. Needs slight improvement in handwriting.',
+            cgpa: 8.85
         },
         fees: [
             { id: 1, title: 'Term 2 Tuition Fee', amount: '₹15,000', dueDate: '2024-04-10', status: 'Unpaid', penalty: '₹0' },
@@ -372,6 +373,33 @@ export const mockBackend = {
         ]
     },
 
+    teacherData: {
+        stats: {
+            activeStudents: 124,
+            upcomingClasses: 4,
+            pendingGrading: 18,
+            avergeClassGPA: 8.2
+        },
+        classes: [
+            { id: 1, name: 'Applied Mathematics', section: 'A', time: '10:00 AM', venue: 'Room 302' },
+            { id: 2, name: 'Introduction to AI', section: 'B', time: '11:45 AM', venue: 'Lab 1' },
+            { id: 3, name: 'Elements of Electronics', section: 'A', time: '02:00 PM', venue: 'Room 205' },
+        ],
+        recentSubmissions: [
+            { id: 101, student: 'Ananya R.', subject: 'Math', title: 'Quadratic Equations Ex 4.2', time: '2 hrs ago' },
+            { id: 102, student: 'Vikram S.', subject: 'AI', title: 'Neural Networks Quiz', time: '5 hrs ago' },
+            { id: 103, student: 'Rahul K.', subject: 'Electronics', title: 'Circuit Design Assignment', time: 'Yesterday' },
+        ]
+    },
+
+    calendarEvents: [
+        { id: 1, title: 'Annual Cultural Fest', date: '2024-04-15', type: 'Fest', status: 'Upcoming', description: 'Annual intra-college cultural competition.' },
+        { id: 2, title: 'Spring Semester Exams', date: '2024-05-10', type: 'Exam', status: 'Upcoming', description: 'Final theory examinations for the current semester.' },
+        { id: 3, title: 'Holiday - Ambedkar Jayanti', date: '2024-04-14', type: 'Holiday', status: 'Important', description: 'National holiday in observance of Ambedkar Jayanti.' },
+        { id: 4, title: 'Hackathon 2024', date: '2024-03-20', type: 'Competition', status: 'Completed', description: '24-hour non-stop coding competition.' },
+        { id: 5, title: 'Project Exhibition', date: '2024-04-25', type: 'Exhibition', status: 'Upcoming', description: 'Final year students will showcase their projects.' },
+    ],
+
     // Semester Analytics
     semesterAnalytics: [
         { sem: 1, sgpa: 8.5, attendance: 82, studyHours: 120, weakSubjects: ['Mechanics'], strongSubjects: ['Mathematics'] },
@@ -387,10 +415,10 @@ export const mockBackend = {
         { subject: '1BIMEK105 - Mechanical Engg', ia1: 15, ia2: 13, ia3: 14, see: 65, total: 70 },
     ],
 
-    login: async (email, password, type) => {
+    login: async (email, password) => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                const user = mockBackend.users.find(u => u.email === email && u.password === password && u.role === type);
+                const user = mockBackend.users.find(u => u.email === email && u.password === password);
                 if (user) {
                     resolve({ user, token: 'mock-jwt-token' });
                 } else {

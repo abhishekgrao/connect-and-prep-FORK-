@@ -4,7 +4,7 @@ import {
     Users, Activity, Wallet, Bell, 
     TrendingUp, User, Home, BookOpen, 
     Calendar, CheckCircle2, AlertTriangle, 
-    ShieldAlert 
+    ShieldAlert, Award
 } from 'lucide-react';
 import './FeatureStyles.css';
 
@@ -48,6 +48,13 @@ const ParentDashboard = () => {
                     <div className="card-info">
                         <h3>Safe</h3>
                         <p>Online Presence</p>
+                    </div>
+                </div>
+                <div className="summary-card cgpa">
+                    <div className="card-icon"><Award size={24} color="#a78bfa" /></div>
+                    <div className="card-info">
+                        <h3>{child.cgpa}</h3>
+                        <p>Cumulative CGPA</p>
                     </div>
                 </div>
             </div>
