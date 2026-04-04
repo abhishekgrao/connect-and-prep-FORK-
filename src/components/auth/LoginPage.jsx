@@ -25,7 +25,11 @@ const LoginPage = () => {
         const result = await login(demoEmail, demoPass, role);
 
         if (result.success) {
-            navigate('/dashboard');
+            if (role === 'parent') {
+                navigate('/dashboard/parent-dashboard');
+            } else {
+                navigate('/dashboard');
+            }
         } else {
             setError(result.error);
         }

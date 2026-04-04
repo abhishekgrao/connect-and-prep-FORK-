@@ -3003,6 +3003,76 @@ textarea:focus {
     border-radius: 12px 0 0 12px;
 }
 
+/* Homework Hub Header Actions */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.filter-pills {
+    display: flex;
+    background: #111;
+    border: 2px solid var(--border-color);
+    padding: 4px;
+    border-radius: 8px;
+    gap: 4px;
+}
+
+.pill {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+}
+
+.pill:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.pill.active {
+    background: var(--accent-action);
+    color: #000;
+}
+
+.add-task-btn {
+    background: #111;
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px var(--border-color);
+    transition: all 0.15s;
+    letter-spacing: 0.5px;
+}
+
+.add-task-btn:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 7px 7px 0px var(--accent-primary);
+    border-color: var(--accent-primary);
+    background: #000;
+}
+
+.add-task-btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 3px 3px 0px var(--accent-primary);
+}
+
 .hw-top {
     display: flex;
     justify-content: space-between;

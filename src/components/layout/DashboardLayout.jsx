@@ -29,6 +29,7 @@ const DashboardLayout = () => {
         { label: 'Dashboard', icon: <Layout size={20} />, path: '/dashboard' },
         { label: 'Homework Hub', icon: <BookOpenCheck size={20} />, path: '/dashboard/homework' },
         { label: 'Attendance List', icon: <Calendar size={20} />, path: '/dashboard/attendance' },
+        { label: 'Marks & Grades', icon: <Award size={20} />, path: '/dashboard/marks' },
         { label: 'Timetable', icon: <Clock size={20} />, path: '/dashboard/timetable' },
         { label: 'Notes & PYQs', icon: <BookOpen size={20} />, path: '/dashboard/notes' },
         { label: 'My Notes & Tasks', icon: <StickyNote size={20} />, path: '/dashboard/my-notes' },
@@ -72,7 +73,7 @@ const DashboardLayout = () => {
         .sort((a, b) => b.path.length - a.path.length)
         .find(i => location.pathname.startsWith(i.path))?.label || 'Dashboard';
 
-    const notifications = mockBackend.notifications || [];
+    const notifications = (mockBackend.notifications || []).filter(n => n.role === user?.role);
     const unreadCount = notifications.filter(n => !n.read).length;
 
     const notifIcons = {

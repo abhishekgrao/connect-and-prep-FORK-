@@ -280,11 +280,14 @@ export const mockBackend = {
 
     // Notifications
     notifications: [
-        { id: 1, type: 'warning', title: 'Attendance Alert', message: 'Comm Skills attendance dropped below 65%', time: '10 min ago', read: false },
-        { id: 2, type: 'event', title: 'Marathon Tomorrow', message: 'Calculus Marathon starts at 2:00 PM in Main Auditorium', time: '1 hr ago', read: false },
-        { id: 3, type: 'upload', title: 'New Paper Uploaded', message: 'Mathematics Internal 2 - 2024 paper is now available', time: '3 hrs ago', read: false },
-        { id: 4, type: 'placement', title: 'Microsoft Registration Open', message: 'Register before March 28 for the OA round', time: '5 hrs ago', read: true },
-        { id: 5, type: 'social', title: 'Study Group Invite', message: 'Alex invited you to "Late Night Coders"', time: '1 day ago', read: true },
+        { id: 1, type: 'warning', title: 'Attendance Alert', message: 'Your child\'s attendance dropped below 65%', time: '10 min ago', read: false, role: 'parent' },
+        { id: 101, type: 'warning', title: 'Attendance Alert', message: 'Comm Skills attendance dropped below 65%', time: '10 min ago', read: false, role: 'student' },
+        { id: 2, type: 'event', title: 'Marathon Tomorrow', message: 'Calculus Marathon starts at 2:00 PM', time: '1 hr ago', read: false, role: 'student' },
+        { id: 102, type: 'event', title: 'Parent Meeting', message: 'PTM scheduled for tomorrow 3 PM', time: '1 hr ago', read: false, role: 'parent' },
+        { id: 3, type: 'upload', title: 'New Paper Uploaded', message: 'Mathematics Internal 2 is now available', time: '3 hrs ago', read: false, role: 'student' },
+        { id: 4, type: 'placement', title: 'Microsoft Registration', message: 'Register before March 28', time: '5 hrs ago', read: true, role: 'student' },
+        { id: 104, type: 'placement', title: 'Career Prep Info', message: 'Placements start next month. Ensure your child is prepared.', time: '5 hrs ago', read: true, role: 'parent' },
+        { id: 5, type: 'social', title: 'Study Group Invite', message: 'Alex invited you to "Late Night Coders"', time: '1 day ago', read: true, role: 'student' },
     ],
 
     // Student Activity Feed
@@ -373,6 +376,15 @@ export const mockBackend = {
     semesterAnalytics: [
         { sem: 1, sgpa: 8.5, attendance: 82, studyHours: 120, weakSubjects: ['Mechanics'], strongSubjects: ['Mathematics'] },
         { sem: 2, sgpa: 8.8, attendance: 88, studyHours: 145, weakSubjects: ['Thermodynamics'], strongSubjects: ['AI & Apps', 'Mathematics'] },
+    ],
+
+    // Student Marks Database
+    studentMarks: [
+        { subject: '1BMATE101 - Applied Mathematics', ia1: 18, ia2: 15, ia3: 16, see: 85, total: 84 },
+        { subject: '1BCHEE102 - Applied Chemistry', ia1: 16, ia2: 14, ia3: 18, see: 72, total: 78 },
+        { subject: '1BEECT103 - Elements of Electronics', ia1: 14, ia2: 16, ia3: 15, see: 90, total: 82 },
+        { subject: '1BAIAK104 - Introduction to AI', ia1: 19, ia2: 17, ia3: 18, see: 95, total: 91 },
+        { subject: '1BIMEK105 - Mechanical Engg', ia1: 15, ia2: 13, ia3: 14, see: 65, total: 70 },
     ],
 
     login: async (email, password, type) => {
