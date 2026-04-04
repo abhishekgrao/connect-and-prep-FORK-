@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { authAPI } from '../services/api';
+import { mockBackend } from '../services/mockBackend';
 
 const AuthContext = createContext(null);
 
@@ -65,19 +66,38 @@ export const AuthProvider = ({ children }) => {
         }
 
         try {
+            // Try Real API first
             const data = await authAPI.login(email, password, type);
-            setUser({
+            const userData = {
                 _id: data._id,
                 name: data.name,
                 email: data.email,
                 role: data.role,
-                usn: data.usn
-            });
-            localStorage.setItem('cp_user', JSON.stringify(data));
+                usn: data.usn || '4VV25EC032'
+            };
+            setUser(userData);
+            localStorage.setItem('cp_user', JSON.stringify(userData));
             localStorage.setItem('cp_token', data.token);
             return { success: true };
         } catch (error) {
-            return { success: false, error: error.message };
+            // Fallback to Mock Backend for Demo
+            console.warn("API Login failed, using Mock Backend fallback", error.message);
+            try {
+                const mockResult = await mockBackend.login(email, password, type);
+                const userData = {
+                    _id: mockResult.user.id,
+                    name: mockResult.user.name,
+                    email: mockResult.user.email,
+                    role: mockResult.user.role,
+                    usn: '4VV25EC032'
+                };
+                setUser(userData);
+                localStorage.setItem('cp_user', JSON.stringify(userData));
+                localStorage.setItem('cp_token', mockResult.token);
+                return { success: true };
+            } catch (mockError) {
+                return { success: false, error: mockError.message };
+            }
         }
     };
 
